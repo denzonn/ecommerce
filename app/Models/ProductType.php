@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductReview extends Model
+class ProductType extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'product_id',
-        'review',
-        'rating'
+        'category_id',
+        'name',
     ];
 
-    public function product(){
-        return $this->belongsTo(Product::class, 'product_id', 'id');
+    public function category() {
+        return $this->belongsTo(CategoryProduct::class, 'category_id', 'id');
     }
 }

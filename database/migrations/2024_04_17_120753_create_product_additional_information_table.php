@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_additional_information', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('category_general_data_id')->constrained('category_general_data')->onDelete('cascade');
+            $table->string('value');
             $table->timestamps();
         });
     }

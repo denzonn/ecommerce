@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('product_dimensions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->integer('width');
+            $table->integer('height');
+            $table->integer('depth');
+            $table->integer('weight');
             $table->timestamps();
         });
     }

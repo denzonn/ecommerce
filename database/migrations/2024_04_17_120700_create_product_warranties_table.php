@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('product_warranties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->string('warranty_summary');
+            $table->string('warranty_service_type');
+            $table->string('covered_in_warranty');
+            $table->string('not_covered_in_warranty');
+            $table->string('domestic_warranty');
             $table->timestamps();
         });
     }

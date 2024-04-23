@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('billing_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('billing_id')->constrained('billings')->onDelete('cascade');
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->integer('purchase_price');
             $table->timestamps();
         });
     }
